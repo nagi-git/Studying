@@ -16,6 +16,7 @@ public class Test03 {
 
 
 		int count = 0;
+		// [currentNum - digSum]を繰り返す（currentNumが0になるまで）
 		for (int currentNum = n; currentNum != 0; count++) {
 			int[] digNums = getDigNums(currentNum);
 			int digSum = getDigSum(digNums);
@@ -29,18 +30,23 @@ public class Test03 {
 	/**
 	 * nの値の各桁の値を配列に入れる
 	 * @param n ユーザーが入力した値
-	 * @return digNums nの値が各配列に入った
+	 * @return digNums nの値が入った配列
 	 */
 	private static int[] getDigNums(int n) {
 		int[] digNums = new int[] {0, 0, 0, 0, 0};
 
 		String strN = String.valueOf(n);
 		for (int i = 0; i < strN.length(); i++) {
-			digNums[i] = Integer.valueOf(strN.substring(i, i + 1));
+			digNums[i] = Integer.parseInt(strN.substring(i, i + 1));
 		}
 		return digNums;
 	}
 
+	/**
+	 * digNums配列各要素の数字を合計する
+	 * @param digNums nの値が入った配列
+	 * @return sum digNums配列各要素の数字の合計
+	 */
 	private static int getDigSum(int[] digNums) {
 		int sum = 0;
 		for (int digNum : digNums) {
