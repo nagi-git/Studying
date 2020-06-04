@@ -35,6 +35,7 @@ public class PaiC01Point {
 		for(int i = 0; i < m; i++) {
 			System.out.println(allMoneyPoint[i][0] + " " + allMoneyPoint[i][1]);
 		}
+		sc.close();
 	}
 
 }

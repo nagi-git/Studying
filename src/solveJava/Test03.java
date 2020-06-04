@@ -33,5 +33,6 @@ public class Test03 {
 		    nZeroCount = i;
 	    }
 	    System.out.println(nZeroCount);
+		sc.close();
 	}
 }

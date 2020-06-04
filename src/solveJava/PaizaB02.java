@@ -59,6 +59,7 @@ public class PaizaB02 {
 				}countUpM++;
 			}
 		}
+		sc.close();
 
 		System.out.println(players.size());
 		for(int player : players) {

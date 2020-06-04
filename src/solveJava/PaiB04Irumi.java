@@ -55,5 +55,6 @@ public class PaiB04Irumi {
 				System.out.print(lightCount[i] + " ");
 			}
 		}
+		sc.close();
 	}
 }

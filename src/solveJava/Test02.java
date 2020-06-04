@@ -27,5 +27,6 @@ public class Test02 {
 	    } else {
 	    	System.out.println("NO");
 	    }
+		sc.close();
 	}
 }

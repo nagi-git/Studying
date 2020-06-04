@@ -52,5 +52,6 @@ public class PaizaC02 {
 	for(int n = 0; n < c; n++) {
 		System.out.println(count[n]);
 	}
+	sc.close();
   }
 }

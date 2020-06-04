@@ -11,7 +11,6 @@ public class Test03 {
 
 		if (!(n >= 1 && n <= 100000)) {
 			System.err.println("Nの値が範囲外です。");
-			return;
 		}
 
 
@@ -25,6 +24,7 @@ public class Test03 {
 		}
 
 		System.out.println(count);
+		sc.close();
 	}
 
 	/**

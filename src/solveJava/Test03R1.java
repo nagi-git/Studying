@@ -17,6 +17,7 @@ public class Test03R1 {
 			updateN -= sumDigNum;
 		}
 		System.out.println(count);
+		sc.close();
 	}
 
 	private static int[] digNums(int n) {

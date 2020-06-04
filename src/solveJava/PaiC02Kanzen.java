@@ -41,5 +41,6 @@ public class PaiC02Kanzen {
 		for(int i = 0; i < q; i++) {
 			System.out.println(nJadge[i]);
 		}
+		sc.close();
 	}
 }

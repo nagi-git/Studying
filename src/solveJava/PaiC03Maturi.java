@@ -52,6 +52,7 @@ public class PaiC03Maturi {
 			nextDayCount = nextDayCount + (13 - d) + b;
 		}
 		System.out.println(nextDayCount);
+		sc.close();
 	}
 
 }

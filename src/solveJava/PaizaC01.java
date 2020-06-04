@@ -15,5 +15,6 @@ public class PaizaC01 {
     		System.out.println(i);
     	}
     }
+	sc.close();
   }
 }

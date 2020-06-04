@@ -47,6 +47,7 @@ public class PaiB01Fukusu {
 		for(int k = 0; k < N; k++) {
 			System.out.println(word[k]);
 		}
+		sc.close();
 	}
 
 }

@@ -42,5 +42,6 @@ public class PaiB03Syussya {
 		int timeGohome = timeGoTrainTime - a;
 
 		System.out.println(String.format("%02d",((timeGohome - timeGohome % 60) / 60)) + ":" + String.format("%02d",(timeGohome % 60)));
+		sc.close();
 	}
 }

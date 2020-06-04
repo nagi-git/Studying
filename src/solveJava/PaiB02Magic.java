@@ -74,5 +74,6 @@ public class PaiB02Magic {
 				System.out.print("\n");
 			}
 		}
+		sc.close();
 	}
 }

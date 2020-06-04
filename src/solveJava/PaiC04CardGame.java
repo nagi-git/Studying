@@ -56,6 +56,7 @@ public class PaiC04CardGame {
 		for(int i = 0; i < n; i++) {
 			System.out.println(yaku[i]);
 		}
+		sc.close();
 	}
 
 }

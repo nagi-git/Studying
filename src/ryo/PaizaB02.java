@@ -36,11 +36,8 @@ public class PaizaB02 {
 			}
 
 			usedWordList.add(word);
+			sc.close();
 
-
-
-
-//		}
 	}
 
 	private static String scanWork(Scanner sc, List<String> usedWordList) {

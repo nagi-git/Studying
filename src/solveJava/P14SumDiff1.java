@@ -30,6 +30,6 @@ public class P14SumDiff1 {
         		}
         	}
         }
-
+		sc.close();
     }
 }

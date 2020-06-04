@@ -42,6 +42,7 @@ public class PaizaUnagiB03 {
 			}
 		}
 		System.out.println(downCount);
+		sc.close();
 	}
 
 	private static boolean isEmpty(boolean[] seats, int groupTotal, int groupStart) {

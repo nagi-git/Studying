@@ -45,5 +45,6 @@ public class PaizaB01 {
 
 		System.out.print(dayCount);
 		System.out.print(visitorMaxDay + 1);
+		sc.close();
 	}
 }
