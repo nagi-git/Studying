@@ -2,7 +2,7 @@ package solveJava;
 
 import java.util.Scanner;
 
-public class PaiB06Nezumi {
+public class PaiB07Nezumi {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		// 縦マス数
@@ -25,32 +25,23 @@ public class PaiB06Nezumi {
 			}
 		}
 
-		// 鼠小僧が動く
+		// 鼠小僧の座標
 		int[] placeNow = {h0 - 1, w0 - 1};
-		int directionNow = 2500;
-		for(int i = 0; (placeNow[0] < h || placeNow[1] < w); i++) {
-			if(placeNow[0] >= h || placeNow[1] >= w) {
+		// 鼠小僧の方角
+		int directionNow = 8000;
+		for(int i = 0; i < 2000; i++) {
+			// 0より下か、総マス数超えたらループ終了
+			if(placeNow[0] >= h || placeNow[1] >= w || placeNow[0] < 0 || placeNow[1] < 0) {
 				break;
 			} else if(towns[placeNow[0]][placeNow[1]].equals(".")) {
 				towns[placeNow[0]][placeNow[1]] = "*";
 				directionNow += 1;
-				if(directionNow % 4 == 1) {
-					placeNow[1] += 1;
-				} else if(directionNow % 2 == 0) {
-					placeNow[0] += 1;
-				} else if(directionNow % 4 == 3) {
-					placeNow[1] -= 1;
-				}
+				placeNow = movePlace(placeNow, directionNow);
+
 			} else if(towns[placeNow[0]][placeNow[1]].equals("*")) {
 				towns[placeNow[0]][placeNow[1]] = ".";
 				directionNow -= 1;
-				if(directionNow % 4 == 1) {
-					placeNow[1] += 1;
-				} else if(directionNow % 2 == 0) {
-					placeNow[0] += 1;
-				} else if(directionNow % 4 == 3) {
-					placeNow[1] -= 1;
-				}
+				placeNow = movePlace(placeNow, directionNow);
 			}
 		}
 
@@ -63,7 +54,20 @@ public class PaiB06Nezumi {
 				System.out.print("\n");
 			}
 		}
+	}
 
+	// 方角による座標の動き方を計算
+	private static int[] movePlace(int[] placeNow, int directionNow) {
+		if(directionNow % 4 == 0) {
+			placeNow[0] -= 1;
+		}else if(directionNow % 4 == 1) {
+			placeNow[1] += 1;
+		} else if(directionNow % 4 == 2) {
+			placeNow[0] += 1;
+		} else if(directionNow % 4 == 3) {
+			placeNow[1] -= 1;
+		}
+		return placeNow;
 	}
 
 }

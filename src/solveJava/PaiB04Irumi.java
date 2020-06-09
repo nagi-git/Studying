@@ -40,7 +40,7 @@ public class PaiB04Irumi {
 			roundAveLightCount[i] = (int)Math.floor(aveLightCount[i]);
 
 			// もし平均値がm個を上回っていなければ各電球数に（m - 平均値）を足す
-			if(roundAveLightCount[i] < m) {
+			if(roundAveLightCount[i] <= m) {
 				for(int k = researchSec[i][0] - 1; k < researchSec[i][1]; k++) {
 					lightCount[k] = lightCount[k] + (m - roundAveLightCount[i]);
 				}
