@@ -9,8 +9,9 @@ public class Sample22 {
 		doubleVal = 1.25;
 		doubleVal = (double)(intVal * doubleVal);
 		System.out.println("計算結果は"+doubleVal);
-		// TODO 自動生成されたメソッド・スタブ
 
+		long amount = 123_456_789L;
+		System.out.println(amount);
 	}
 
 }
