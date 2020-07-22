@@ -1,7 +1,6 @@
 package solveJava;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +16,10 @@ public class PaiB12Shiritori_Answer2 {
 		int m = sc.nextInt();
 
 		// 単語リストを作成
-		String[] wordList = createWordList(k, sc);
+		List<String> wordList = new ArrayList<>();
+		for(int i = 0; i < k; i++) {
+			wordList.add(sc.next());
+		}
 
 		// プレイヤーの配列
 		List<Integer> players = new ArrayList<>();
@@ -25,38 +27,49 @@ public class PaiB12Shiritori_Answer2 {
 			players.add(i);
 		}
 
-		// 現在の番のプレイヤー
-		int playerNum = 0;
-
 		// 発言した単語のリスト
-		String[] shiriWord = new String[m - 1];
+		List<String> words = new ArrayList<>();
 
 		// しりとりを行う
-		for(int shiriNum = 0; shiriNum < m; shiriNum++) {
+		for(int shiriCount = 0; shiriCount < m; shiriCount++) {
+			for(int playerNum = 0; playerNum < players.size() && shiriCount < m; playerNum++) {
+				// 発言した単語をリストに入れる
+				words.add(sc.next());
 
-			// 発言した単語をリストに入れる
-			shiriWord[shiriNum] = sc.next();
+				// ルールに合ってなかったらプレイヤーと単語を削除
+				isRule(words, shiriCount, players, playerNum, wordList);
 
-			// ルールに合ってなかったらプレイヤーを削除
-			isRule(shiriWord, shiriNum, players, playerNum, wordList);
+				if(playerNum == players.size() - 1) {
+					break;
+				}
 
-			// 次のプレイヤーに回す
-			playerNum = playerNumJudge(players, playerNum);
+				// しりとりのカウントを増やす
+				shiriCount++;
+			}
 		}
+
+		// 残ったプレイヤー数を出力
+		int playersCount = 0;
+		for(int i = 0; i < players.size(); i++) {
+			if(players.get(i) != null) {
+				playersCount += 1;
+			}
+		}
+		System.out.println(playersCount);
 
 		// 残ったプレイヤーを出力
-		for(int player : players) {
-			System.out.println(player + 1);
+		for(int i = 0; i < players.size(); i++) {
+			if(players.get(i) != null) {
+				System.out.println(players.get(i) + 1);
+			}
 		}
-
-
 	}
 
-	private static void isRule(String[] shiriWord, int shiriNum, List<Integer> players, int playerNum, String[] wordList) {
+	private static void isRule(List<String> words, int shiriCount, List<Integer> players, int playerNum, List<String> wordList) {
 		// 単語リストに含まれているか？
 		boolean isObeyRule = true;
-		for(int i = 0; i < wordList.length; i++) {
-			if(shiriWord[shiriNum].equals(wordList[i])) {
+		for(int i = 0; i < wordList.size(); i++) {
+			if(words.get(shiriCount).equals(wordList.get(i))) {
 				isObeyRule = true;
 				break;
 			}else {
@@ -65,45 +78,28 @@ public class PaiB12Shiritori_Answer2 {
 		}
 
 		// 一度使った単語を使ってないか？
-		for(int i = 0; i < shiriNum - 1; i++) {
-			if(shiriWord[shiriNum] != shiriWord[i]) {
+		for(int i = 0; i < shiriCount; i++) {
+			if(words.get(shiriCount).equals(words.get(i))) {
 				isObeyRule = false;
+				break;
 			}
 		}
 
 		// 直前の人の発言の最後の文字と一緒か？
-		if(shiriNum != 0) {
-			if(shiriWord[shiriNum - 1].substring(shiriWord[shiriNum - 1].length() - 1) != shiriWord[shiriNum].substring(1)) {
+		if(shiriCount != 0 && words.get(shiriCount - 1) != null) {
+			if(words.get(shiriCount - 1).substring(words.get(shiriCount - 1).length() - 1).equals(words.get(shiriCount).substring(1))) {
 				isObeyRule = false;
 			}
+		}
 		// 最後の文字がzで終わってないか？
-		} else if("z" == shiriWord[shiriNum].substring(shiriWord[shiriNum].length())) {
+		if(words.get(shiriCount).substring(words.get(shiriCount).length() - 1).equals("z")) {
 			isObeyRule = false;
 		}
 
 		if(isObeyRule == false) {
-			players.remove(playerNum);
-			List<String> shiriWords = new ArrayList<>(Arrays.asList(shiriWord));
-			shiriWords.remove(shiriNum);
-			shiriWords.toArray(new String[0]);
+			players.set(playerNum, null);
+			words.set(shiriCount, null);
 		}
-	}
-
-	private static int playerNumJudge(List<Integer> players, int playerNum) {
-		if(playerNum == players.size()) {
-			playerNum = 0;
-		}else {
-			playerNum += 1;
-		}
-		return playerNum;
-	}
-
-	private static String[] createWordList(int k, Scanner sc) {
-		String[] wordList = new String[k];
-		for(int i = 0; i < k; i++) {
-			wordList [i] = sc.next();
-		}
-		return wordList;
 	}
 
 }
