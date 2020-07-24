@@ -77,7 +77,7 @@ public class PaiB12Shiritori {
 				isObeyRule = false;
 			}
 		// 最後の文字がzで終わってないか？
-		} else if("z" == shiriWord[shiriNum].substring(shiriWord[shiriNum].length())) {
+		} else if("z" == shiriWord[shiriNum].substring(shiriWord[shiriNum].length() - 1)) {
 			isObeyRule = false;
 		}
 
