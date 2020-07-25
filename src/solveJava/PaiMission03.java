@@ -30,7 +30,7 @@ public class PaiMission03 {
 	}
 
 	private static int m_tSumValueJudge(int highM_tSumValue, int m_tSumValue) {
-		if(highM_tSumValue < m_tSumValue) {
+		if(highM_tSumValue <= m_tSumValue) {
 			highM_tSumValue = m_tSumValue;
 		}
 		return highM_tSumValue;
