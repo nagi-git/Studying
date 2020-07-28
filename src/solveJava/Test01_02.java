@@ -26,6 +26,8 @@ public class Test01_02 {
 			}
 		}
 
+		sc.close();
+
 	}
 
 }

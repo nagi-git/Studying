@@ -60,5 +60,7 @@ public class PaiB05Gomoku {
 		}
 
 		System.out.println(winnerMark);
+
+		sc.close();
 	}
 }

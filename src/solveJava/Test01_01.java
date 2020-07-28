@@ -28,6 +28,7 @@ public class Test01_01 {
 		}
 		System.out.print(isMatch);
 
+		sc.close();
 	}
 
 }

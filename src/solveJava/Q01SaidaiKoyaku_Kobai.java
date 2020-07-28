@@ -16,6 +16,8 @@ public class Q01SaidaiKoyaku_Kobai {
 		// 最大公約数を求める
 		int gcd = gcdCalc(a, b);
 
+		sc.close();
+
 	}
 
 	private static int gcdCalc(int a, int b) {

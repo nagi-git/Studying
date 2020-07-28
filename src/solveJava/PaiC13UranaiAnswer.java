@@ -29,5 +29,6 @@ public class PaiC13UranaiAnswer {
 			String result = blood2result.get(blood);
 			System.out.println(user + " " + result);
 		}
+		sc.close();
 	}
 }

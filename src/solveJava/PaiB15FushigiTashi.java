@@ -37,6 +37,7 @@ public class PaiB15FushigiTashi {
 		for(int i = quinaryStr.size() - 1; i >= 0; i--) {
 			System.out.print(quinaryStr.get(i));
 		}
+		sc.close();
 	}
 
 	private static List<String> convQuinaryStr(List<Integer> quinaryArray) {

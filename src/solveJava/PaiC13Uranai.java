@@ -27,5 +27,6 @@ public class PaiC13Uranai {
 		for(String key : userMap.keySet()) {
 			System.out.println(key + " " + uranaiMap.get(userMap.get(key)));
 		}
+		sc.close();
 	}
 }

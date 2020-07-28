@@ -54,6 +54,7 @@ public class PaiB07Nezumi {
 				System.out.print("\n");
 			}
 		}
+		sc.close();
 	}
 
 	// 方角による座標の動き方を計算

@@ -14,6 +14,7 @@ public class PaiA01Origami {
 		for(int i = 0; i < n; i++) {
 			foldPattern += "0";
 		}
+		sc.close();
 	}
 
 }

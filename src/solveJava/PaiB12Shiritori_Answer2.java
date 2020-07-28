@@ -63,6 +63,7 @@ public class PaiB12Shiritori_Answer2 {
 				System.out.println(players.get(i) + 1);
 			}
 		}
+		sc.close();
 	}
 
 	private static void isRule(List<String> words, int shiriCount, List<Integer> players, int playerNum, List<String> wordList) {

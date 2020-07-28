@@ -15,6 +15,8 @@ public class PaiC14Integer5 {
 			sumA5more += is5more(a);
 		}
 		System.out.println(sumA5more);
+
+		sc.close();
 	}
 
 	private static int is5more(int a) {

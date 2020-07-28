@@ -25,6 +25,8 @@ public class PaiC12SumOrHang {
 
 		// 出力
 		System.out.println(totalNum);
+
+		sc.close();
 	}
 
 	private static int calcNum(int a, int b) {

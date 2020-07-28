@@ -39,6 +39,7 @@ public class PaiB08Senkyo {
 				System.out.println(i + 1);
 			}
 		}
+		sc.close();
 	}
 
 	private static int mostSupportJudge(int mostSupport, int[] mSupport, int m) {

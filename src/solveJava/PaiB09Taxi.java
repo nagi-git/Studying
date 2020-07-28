@@ -39,6 +39,8 @@ public class PaiB09Taxi {
 //			System.out.println(allMoney[i]);
 		}
 		System.out.println(lowestMoney + " " + highestMoney);
+
+		sc.close();
 	}
 
 	private static int compareMoneyHigh(int allMoney, int highestMoney) {

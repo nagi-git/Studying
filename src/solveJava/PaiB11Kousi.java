@@ -33,6 +33,8 @@ public class PaiB11Kousi {
 		}
 		// 出力
 		System.out.println(areaCount * 4);
+
+		sc.close();
 	}
 
 	private static boolean areaCellJudge(double r, double cellDistance) {
