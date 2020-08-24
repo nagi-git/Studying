@@ -10,7 +10,7 @@ public class PaiB15Yokueigyobi {
 		// M
 		int month = sc.nextInt();
 		// D
-		int day = sc.nextInt();s
+		int day = sc.nextInt();
 		// d
 		String d = sc.next();
 
@@ -32,6 +32,8 @@ public class PaiB15Yokueigyobi {
 
 
 		dispCalendar(cal);
+
+		sc.close();
 
 	}
 

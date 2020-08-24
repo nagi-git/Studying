@@ -19,14 +19,15 @@ public class PaiB17Aisho {
 		String[] s_tArray = addName(sArray, tArray);
 		String[] t_sArray = addName(tArray, sArray);
 
-		// 名前を数字に変換
+		// 名前を数字に変換(2パターン)
 		int[] s_tNumArray = convNum(s_tArray);
 		int[] t_sNumArray = convNum(t_sArray);
 
-		// 相性を計算する
+		// 相性を計算する(2パターン)
 		int[] matchNumS_t = matchNumCalc(s_tNumArray);
 		int[] matchNumT_s = matchNumCalc(t_sNumArray);
 
+		// 大きい方を出力
 		if(matchNumS_t[0] < matchNumT_s[0]) {
 			System.out.println(matchNumT_s[0]);
 		}else {
