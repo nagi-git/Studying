@@ -18,12 +18,12 @@ public class PaizaB01Visitors {
 		// 訪問者の数を入力（n日分）
 		visitorCount = inputVisitor(n, visitorCount, sc);
 
-		// k日間分の訪問者合計数の配列(n - k)
+		// k日間分の訪問者合計数の配列[n - k + 1]
 		int[] visitorSumCount = new int[n - k + 1];
 		// visitorSumCountを算出する
 		visitorSumCount = visitorSum(visitorCount, n, k, visitorSumCount);
 
-		// visitorSumCountの中でMaxの値visitorSumMax
+		// visitorSumCountの中でMaxの値
 		int visitorSumMax = 0;
 		// visitorSumMaxを求める
 		visitorSumMax = sortVisitorSumMax(visitorSumCount, visitorSumMax);
@@ -60,7 +60,7 @@ public class PaizaB01Visitors {
 	}
 
 	private static int[] visitorSum(int[] visitorCount, int n, int k, int[] visitorSumCount) {
-		// k日間分の訪問者合計を求める((n - k)回分)
+		// k日間分の訪問者合計を求める((n - k + 1)回分)
 		for(int i = 0; i < (n - k + 1); i++) {
 			for(int j = i; j < (k + i); j++) {
 				visitorSumCount[i] += visitorCount[j];
