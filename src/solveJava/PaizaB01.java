@@ -6,7 +6,9 @@ public class PaizaB01 {
 
 	public static void main(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);
+		// アクセスログが残っていた日数n
 		int n = sc.nextInt();
+		// キャンペーンを行った日数k
 		int k = sc.nextInt();
 
 		int[] visitor = new int[n];
@@ -43,7 +45,7 @@ public class PaizaB01 {
 			i++;
 		}
 
-		System.out.print(dayCount);
+		System.out.print(dayCount + " ");
 		System.out.print(visitorMaxDay + 1);
 		sc.close();
 	}
