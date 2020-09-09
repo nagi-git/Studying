@@ -13,7 +13,7 @@ public class PaizaB01Visitors {
 		// キャンペーンを行った日数k
 		int k = sc.nextInt();
 
-		// n日間のアクセスログ配列
+		// n日間の訪問者数配列
 		int[] visitorCount = new int[n];
 		// 訪問者の数を入力（n日分）
 		visitorCount = inputVisitor(n, visitorCount, sc);
@@ -38,29 +38,33 @@ public class PaizaB01Visitors {
 		// 候補日の最初の日を出力
 		System.out.print(visitorSumMaxStartDay.get(0) + 1);
 
+		sc.close();
+
 	}
 
-	private static List<Integer> visitorSumMaxStartDaySort(int[] visitorSumCount, int visitorSumMax, List<Integer> visitorSumMaxStartDay) {
-		for(int i = 0; i < visitorSumCount.length; i++) {
-			if(visitorSumCount[i] == visitorSumMax) {
-				visitorSumMaxStartDay.add(i);
-			}
+	/**
+	 * 訪問者の数を入力するメソッド（n日分）
+	 * @param n アクセスログが残っていた日数n
+	 * @param visitorCount n日間の訪問者数配列
+	 * @param sc 標準入力
+	 * @return 訪問者数を入力した配列
+	 */
+	private static int[] inputVisitor(int n, int[] visitorCount, Scanner sc) {
+		for(int i = 0; i < n; i++) {
+			visitorCount[i] = sc.nextInt();
 		}
-		return visitorSumMaxStartDay;
+		return visitorCount;
 	}
 
-	private static int sortVisitorSumMax(int[] visitorSumCount, int visitorSumMax) {
-		//
-		for(int i = 0; i < visitorSumCount.length; i++) {
-			if(visitorSumCount[i] > visitorSumMax) {
-				visitorSumMax = visitorSumCount[i];
-			}
-		}
-		return visitorSumMax;
-	}
-
+	/**
+	 * k日間分の訪問者合計を求める((n - k + 1)回分)
+	 * @param visitorCount n日間の訪問者数配列
+	 * @param n アクセスログが残っていた日数n
+	 * @param k キャンペーンを行った日数k
+	 * @param visitorSumCount k日間分の訪問者合計数の配列
+	 * @return k日間分の訪問者合計数を算出した配列
+	 */
 	private static int[] visitorSum(int[] visitorCount, int n, int k, int[] visitorSumCount) {
-		// k日間分の訪問者合計を求める((n - k + 1)回分)
 		for(int i = 0; i < (n - k + 1); i++) {
 			for(int j = i; j < (k + i); j++) {
 				visitorSumCount[i] += visitorCount[j];
@@ -69,10 +73,34 @@ public class PaizaB01Visitors {
 		return visitorSumCount;
 	}
 
-	private static int[] inputVisitor(int n, int[] visitorCount, Scanner sc) {
-		for(int i = 0; i < n; i++) {
-			visitorCount[i] = sc.nextInt();
+	/**
+	 * 訪問者合計値の中でMax値を求める
+	 * @param visitorSumCount k日間分の訪問者合計数の配列
+	 * @param visitorSumMax visitorSumCount中のMax値
+	 * @return 求めたMax値
+	 */
+	private static int sortVisitorSumMax(int[] visitorSumCount, int visitorSumMax) {
+		for(int i = 0; i < visitorSumCount.length; i++) {
+			if(visitorSumCount[i] > visitorSumMax) {
+				visitorSumMax = visitorSumCount[i];
+			}
 		}
-		return visitorCount;
+		return visitorSumMax;
+	}
+
+	/**
+	 * visitorSumCountの中でvisitorSumMaxになるインデックスをリストに保存する
+	 * @param visitorSumCount k日間分の訪問者合計数の配列
+	 * @param visitorSumMax visitorSumCount中のMax値
+	 * @param visitorSumMaxStartDay visitorSumCountの中でvisitorSumMaxになるインデックス
+	 * @return インデックスが入ったリストを返す
+	 */
+	private static List<Integer> visitorSumMaxStartDaySort(int[] visitorSumCount, int visitorSumMax, List<Integer> visitorSumMaxStartDay) {
+		for(int i = 0; i < visitorSumCount.length; i++) {
+			if(visitorSumCount[i] == visitorSumMax) {
+				visitorSumMaxStartDay.add(i);
+			}
+		}
+		return visitorSumMaxStartDay;
 	}
 }
